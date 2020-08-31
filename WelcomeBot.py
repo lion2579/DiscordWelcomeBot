@@ -1,4 +1,5 @@
 import discord
+import datetime
 
 client = discord.Client()
 
@@ -21,7 +22,7 @@ async def on_ready():
 # Logs new users and sends the welcome message.
 @client.event
 async def on_member_join(member):
-    print(f"Recognized {member.name} joined the server.")
+    print(f"Recognized {member.name} joined a server on {datetime.datetime.now(datetime.timezone.utc)}.")
     await client.get_channel(TestBotInfo.getWelcomeID()).send(welcomeMessage) # Add any formatting here. Example: welcomeMessage.format(member.name) will display the new users name in place of a set of {}.
 
 # A help message.
